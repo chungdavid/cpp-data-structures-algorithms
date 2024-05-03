@@ -1,0 +1,5 @@
+if(EXISTS "/home/apollo/cpp-data-structures-algorithms/dsa_cpp/build_debug/tests/linkedlist_tests[1]_tests.cmake")
+  include("/home/apollo/cpp-data-structures-algorithms/dsa_cpp/build_debug/tests/linkedlist_tests[1]_tests.cmake")
+else()
+  add_test(linkedlist_tests_NOT_BUILT linkedlist_tests_NOT_BUILT)
+endif()
