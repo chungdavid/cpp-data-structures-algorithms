@@ -81,7 +81,18 @@ void LinkedList<T>::insertEnd(T val) {
 
 template<typename T>
 void LinkedList<T>::remove(int index) {
-
+    if(index >= size || index < 0) {
+        throw std::out_of_range("Index out of range.");
+    } else {
+        Node<T>* curr = head;
+        for(int i = 0; i < index; ++i) {
+            curr = curr->next;
+        }
+        Node<T>* to_delete = curr->next;
+        curr->next = to_delete->next;
+        delete(to_delete);
+    }
+    --size;
 }
 
 template<typename T>
