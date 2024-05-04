@@ -10,11 +10,11 @@ protected:
 
     list2.insertEnd(5.0);
 
-    list4.insertStart(1);
-    list4.insertStart(2);
-    list4.insertEnd(3);
-    list4.insertStart(4);
     list4.insertStart(5);
+    list4.insertStart(4);
+    list4.insertStart(3);
+    list4.insertStart(2);
+    list4.insertStart(1);
   }
 
   dsa_cpp::LinkedList<int> list1;
@@ -59,25 +59,25 @@ TEST_F(LinkedListTest, InsertTest) {
 }
 
 TEST_F(LinkedListTest, RemoveTest) {
-  EXPECT_EQ(list1.getSize(), 3);
+  EXPECT_EQ(list4.getSize(), 5);
 
   //remove from middle
-  list1.remove(2);
-  EXPECT_EQ(list1.getVal(0), 1);
-  EXPECT_EQ(list1.getVal(1), 2);
-  EXPECT_EQ(list1.getVal(3), 4);
-  EXPECT_EQ(list1.getSize(), 4);
-  EXPECT_THROW(list1.getVal(4), std::out_of_range);
+  list4.remove(2);
+  EXPECT_EQ(list4.getVal(0), 1);
+  EXPECT_EQ(list4.getVal(1), 2);
+  EXPECT_EQ(list4.getVal(2), 4);
+  EXPECT_EQ(list4.getSize(), 4);
+  EXPECT_THROW(list4.getVal(4), std::out_of_range);
 
   //remove from head
-  list1.remove(0);
-  EXPECT_EQ(list1.getVal(0), 2);
-  EXPECT_EQ(list1.getSize(), 3);
+  list4.remove(0);
+  EXPECT_EQ(list4.getVal(0), 2);
+  EXPECT_EQ(list4.getSize(), 3);
 
   //remove from tail
-  list1.remove(2);
-  EXPECT_EQ(list1.getVal(1), 4);
-  EXPECT_EQ(list1.getSize(), 2);
+  list4.remove(2);
+  EXPECT_EQ(list4.getVal(1), 4);
+  EXPECT_EQ(list4.getSize(), 2);
 }
 
 
