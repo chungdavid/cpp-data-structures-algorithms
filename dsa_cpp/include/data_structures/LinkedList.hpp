@@ -21,7 +21,7 @@ public:
     void insertStart(T val);
     void insertEnd(T val);
     T getVal(int index);
-    // void remove(T val);
+    void remove(int index);
     void print();
     
 private:
@@ -77,6 +77,11 @@ void LinkedList<T>::insertEnd(T val) {
     }
     curr->next = new_node;
     ++size;
+}
+
+template<typename T>
+void LinkedList<T>::remove(int index) {
+
 }
 
 template<typename T>
