@@ -7,24 +7,19 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-add_executable(
-  linkedlist_tests
-  LinkedList_tests.cpp
-)
+add_executable(linkedlist_tests LinkedList_tests.cpp)
+add_executable(circularbuffer_tests CircularBuffer_tests.cpp)
 
 target_compile_features(linkedlist_tests PRIVATE cxx_std_17)
+target_compile_features(circularbuffer_tests PRIVATE cxx_std_17)
 
-target_include_directories(
-  linkedlist_tests PRIVATE
-  ${CMAKE_SOURCE_DIR}/include
-)
+target_include_directories(linkedlist_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(circularbuffer_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
-target_link_libraries(
-  linkedlist_tests PRIVATE
-  dsa_cpp
-  GTest::gtest_main
-)
+target_link_libraries(linkedlist_tests PRIVATE dsa_cpp GTest::gtest_main)
+target_link_libraries(circularbuffer_tests PRIVATE dsa_cpp GTest::gtest_main)
 
 include(GoogleTest)
 gtest_discover_tests(linkedlist_tests)
+gtest_discover_tests(circularbuffer_tests)
 

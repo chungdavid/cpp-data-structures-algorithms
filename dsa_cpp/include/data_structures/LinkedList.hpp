@@ -17,12 +17,12 @@ class LinkedList {
 public:
     LinkedList();
     ~LinkedList();
-    int getSize();
+    int getSize() const;
     void insertStart(T val);
     void insertEnd(T val);
-    T getVal(int index);
+    T getVal(int index) const;
     void remove(int index);
-    void print();
+    void print() const;
     
 private:
     Node<T>* head_;
@@ -43,7 +43,7 @@ LinkedList<T>::~LinkedList() {
 }
 
 template<typename T>
-T LinkedList<T>::getVal(int index) {
+T LinkedList<T>::getVal(int index) const {
     if(index < 0 || index >= size_) {
         throw std::out_of_range("Index out of range");
     } else {
@@ -56,7 +56,7 @@ T LinkedList<T>::getVal(int index) {
 }
 
 template<typename T>
-int LinkedList<T>::getSize() {
+int LinkedList<T>::getSize() const{
     return size_;
 }
 
@@ -96,7 +96,7 @@ void LinkedList<T>::remove(int index) {
 }
 
 template<typename T>
-void LinkedList<T>::print() {
+void LinkedList<T>::print() const{
     Node<T>* curr = head_;
     while(curr->next) {
         std::cout << curr->next->val << "  ";
