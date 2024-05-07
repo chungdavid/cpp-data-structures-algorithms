@@ -36,21 +36,21 @@ TEST_F(CircularBufferTest, PushPopTest) {
 
 
 TEST_F(CircularBufferTest, PopOnEmptyBufferRaisesError) {
-    EXPECT_EQ(buffer3.pop(), 1.0);
-    EXPECT_EQ(buffer3.pop(), 2.0);
-    EXPECT_THROW(buffer3.pop(), std::out_of_range);
+    EXPECT_EQ(buffer2.pop(), 1.0);
+    EXPECT_EQ(buffer2.pop(), 2.0);
+    EXPECT_THROW(buffer2.pop(), std::out_of_range);
 }
 
 TEST_F(CircularBufferTest, PushToFullBufferDiscardsOldestValue) {
     buffer1.push(20);
     buffer1.push(30);
-    EXPECT_EQ(buffer3.getSize(), 5);
+    EXPECT_EQ(buffer1.getSize(), 5);
     
-    EXPECT_EQ(buffer3.pop(), 3);
-    EXPECT_EQ(buffer3.pop(), 4);
-    EXPECT_EQ(buffer3.pop(), 5);
-    EXPECT_EQ(buffer3.pop(), 20);
-    EXPECT_EQ(buffer3.pop(), 30);
+    EXPECT_EQ(buffer1.pop(), 3);
+    EXPECT_EQ(buffer1.pop(), 4);
+    EXPECT_EQ(buffer1.pop(), 5);
+    EXPECT_EQ(buffer1.pop(), 20);
+    EXPECT_EQ(buffer1.pop(), 30);
     
 }
 
